@@ -41,7 +41,7 @@ pub fn main() !void {
 }
 
 test "read file test" {
-    const file = try std.fs.cwd().openFile("../data/day1_test.txt", .{});
+    const file = try std.fs.cwd().openFile("data/day1_test.txt", .{});
     defer file.close();
 
     var buffer: [100]u8 = undefined;
@@ -81,7 +81,7 @@ test "read data test" {
     defer l1.deinit();
     var l2 = ArrayList(u64).init(allocator);
     defer l2.deinit();
-    try readData("../data/day1_test.txt", &l1, &l2);
+    try readData("data/day1_test.txt", &l1, &l2);
 
     // std.debug.print("List1: {any}\n", .{l1.items});
     // std.debug.print("List2: {any}\n", .{l2.items});
