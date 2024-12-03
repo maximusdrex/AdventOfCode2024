@@ -76,6 +76,16 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
     const day2_run = b.addRunArtifact(day2);
-    const day2_step = b.step("day2", "Solve Advent of Code Day 1");
+    const day2_step = b.step("day2", "Solve Advent of Code Day 2");
     day2_step.dependOn(&day2_run.step);
+
+    const day3 = b.addExecutable(.{
+        .name = "day3",
+        .root_source_file = b.path("src/day3.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
+    const day3_run = b.addRunArtifact(day3);
+    const day3_step = b.step("day3", "Solve Advent of Code Day 3");
+    day3_step.dependOn(&day3_run.step);
 }
